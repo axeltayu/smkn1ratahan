@@ -1,0 +1,763 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Penambahan: CSS Variables for easier theme management */
+:root {
+    --warna-primer: #3498db;
+    --warna-sekunder: #2c3e50;
+    --warna-teks-gelap: #333;
+    --warna-teks-terang: #ffffff;
+    --warna-latar-gelap-transparan: rgba(0, 0, 0, 0.5);
+    --warna-latar-gelap-transparan-strong: rgba(0, 0, 0, 0.8);
+    --warna-bayangan: rgba(0, 0, 0, 0.1);
+    --warna-abu-terang: #ecf0f1;
+    --spasi-xs: 5px;
+    --spasi-sm: 10px;
+    --spasi-md: 20px;
+    --spasi-lg: 30px;
+    --spasi-xl: 40px;
+}
+
+body {
+    /* UBAH: Font family baru (pastikan diimport di HTML head) */
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7; /* Sedikit ditingkatkan untuk readability */
+    color: var(--warna-teks-gelap);
+    min-height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container Styles */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spasi-md); /* Menyesuaikan padding container umum */
+}
+
+.school-profile {
+    padding: var(--spasi-xl) 0; /* Padding vertikal, container diatur lewat .container */
+    flex: 1;
+}
+
+/* Header Styles for general h1, h2 */
+h1, h2, h3 {
+    color: var(--warna-sekunder);
+    margin-bottom: var(--spasi-sm);
+}
+
+/* Ini adalah h1 di luar header (seperti judul section) */
+h1 {
+    font-size: 2.5rem;
+    padding-bottom: var(--spasi-sm);
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: var(--spasi-lg);
+    color: #2980b9; /* Specific color for section titles */
+}
+
+.section-title { /* Added for explicit styling of section titles */
+    text-align: center;
+    margin-bottom: var(--spasi-xl);
+    font-size: 2.2rem;
+    color: var(--warna-sekunder);
+    position: relative;
+    padding-bottom: var(--spasi-sm);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--warna-primer);
+    border-radius: 2px;
+}
+
+
+/* Content Styles */
+/* UBAH: Terapkan text-align: justify untuk paragraf di profil sekolah */
+.school-profile p {
+    text-align: justify; /* PENAMBAHAN */
+    margin-bottom: var(--spasi-md); /* Tetap jaga jarak antar paragraf */
+}
+
+/* UBAH: Terapkan text-align: justify untuk intro dan misi */
+.intro {
+    font-size: 1.1rem;
+    margin-bottom: var(--spasi-md);
+    line-height: 1.7;
+    text-align: justify; /* PENAMBAHAN */
+}
+
+.vision h3, .mission h3 { /* Consistent styling for sub-headings */
+    color: var(--warna-primer);
+    margin-top: var(--spasi-md);
+    margin-bottom: var(--spasi-sm);
+    font-size: 1.5rem;
+}
+
+.vision p {
+    text-align: justify; /* PENAMBAHAN */
+    margin-bottom: var(--spasi-md);
+    font-size: 1rem;
+}
+
+.mission ul {
+    padding-left: var(--spasi-md);
+    list-style-type: disc;
+}
+
+.mission li {
+    margin-bottom: var(--spasi-sm);
+    text-align: justify; /* PENAMBAHAN */
+    font-size: 1rem;
+}
+
+/* Button Styles */
+.btn { /* Gaya umum untuk tombol */
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--warna-primer);
+    color: var(--warna-teks-terang);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--warna-bayangan);
+}
+
+.read-more {
+    margin-top: var(--spasi-lg);
+    text-align: center;
+}
+
+
+/* Header Section (Revisi Total untuk menggabungkan Hero) */
+header {
+    background: linear-gradient(var(--warna-latar-gelap-transparan), var(--warna-latar-gelap-transparan)), url('fotosmk.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: var(--spasi-md);
+    color: var(--warna-teks-terang);
+    text-align: center;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 var(--spasi-md);
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: var(--spasi-md);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.logo-area {
+    position: absolute;
+    left: var(--spasi-md);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.header-logo {
+    max-height: 100px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.school-title {
+    text-align: center;
+    color: var(--warna-teks-terang);
+    width: 100%;
+    flex-grow: 1;
+}
+
+.school-title h1 {
+    font-size: 3rem;
+    margin: 0;
+    line-height: 1.2;
+    color: var(--warna-teks-terang);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.school-title .tagline {
+    font-size: 1.5rem;
+    margin-top: var(--spasi-xs);
+    color: var(--warna-teks-terang);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Navigation */
+nav.main-nav {
+    width: 100%;
+    text-align: center;
+    background-color: var(--warna-latar-gelap-transparan);
+    padding: var(--spasi-sm) 0;
+    border-radius: 8px;
+    margin-bottom: calc(var(--spasi-xl) + var(--spasi-sm));
+    flex-shrink: 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: var(--spasi-lg);
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: var(--warna-teks-terang);
+    font-size: 1.2rem;
+    padding: 8px 18px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--warna-teks-terang);
+    margin-top: var(--spasi-md);
+}
+
+/* Hero Content (Dipindahkan ke dalam header) */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: var(--spasi-md);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin-top: calc(var(--spasi-xl) + var(--spasi-sm));
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spasi-md);
+    color: var(--warna-teks-terang);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: var(--spasi-lg);
+    color: var(--warna-teks-terang);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Hapus #hero section karena sudah digabungkan */
+#hero {
+    display: none;
+}
+
+
+/* Profile Section */
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spasi-xl);
+    margin-bottom: var(--spasi-md);
+}
+
+.profile-text {
+    flex: 1;
+}
+
+/* UBAH: Terapkan text-align: justify untuk paragraf di profile-text */
+.profile-text p {
+    text-align: justify; /* PENAMBAHAN */
+    margin-bottom: var(--spasi-md);
+}
+
+.profile-image {
+    flex: 1;
+}
+
+.profile-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--warna-bayangan);
+}
+
+/* Program Section */
+.programs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.program-card {
+    background: white;
+    padding: var(--spasi-lg) var(--spasi-md);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--warna-bayangan);
+}
+
+.program-card i {
+    font-size: 2.5rem;
+    color: var(--warna-primer);
+    margin-bottom: var(--spasi-md);
+}
+
+.program-card h3 {
+    margin-bottom: var(--spasi-sm);
+    color: var(--warna-sekunder);
+    font-size: 1.2rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.program-card p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    flex-grow: 1;
+    text-align: justify; /* UBAH: Rata kiri kanan untuk deskripsi kartu program */
+}
+
+/* NEW STYLES FOR SUB-PAGES (Detail Jurusan Pages) */
+.subpage-header {
+    /* UBAH: Path gambar header untuk sub-page */
+    background: linear-gradient(var(--warna-latar-gelap-transparan-strong), var(--warna-latar-gelap-transparan-strong)), url('../fotosmk.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--warna-teks-terang);
+    text-align: center;
+    padding: var(--spasi-lg) 0;
+    position: relative;
+}
+
+.subpage-header .header-container {
+    padding: 0 var(--spasi-md);
+    justify-content: center; /* Pusatkan konten vertikal */
+    align-items: center; /* Pusatkan konten horizontal */
+}
+
+.subpage-header .header-top {
+    position: static; /* Hilangkan positioning absolut */
+    margin-bottom: var(--spasi-md);
+    flex-direction: column; /* Stack logo dan judul di sub-page */
+}
+
+.subpage-header .logo-area {
+    position: static;
+    transform: none;
+    margin-bottom: var(--spasi-sm);
+}
+
+.subpage-header .header-logo {
+    max-height: 80px; /* Sedikit lebih kecil */
+}
+
+.subpage-header .school-title h1 {
+    font-size: 2.5rem; /* Ukuran h1 lebih kecil di sub-page */
+}
+
+.subpage-header .school-title .tagline {
+    font-size: 1.2rem; /* Ukuran tagline lebih kecil di sub-page */
+}
+
+.subpage-header nav.main-nav {
+    background-color: transparent; /* Transparan untuk nav di subpage header */
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.subpage-header nav ul li a {
+    padding: 5px 12px; /* Padding lebih kecil untuk nav di sub-page */
+    font-size: 1rem;
+}
+
+.content-section {
+    padding: var(--spasi-xl) 0;
+    background-color: var(--warna-abu-terang); /* Menggunakan variabel */
+    flex: 1;
+}
+
+.program-detail-content {
+    background-color: white;
+    padding: var(--spasi-xl);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--warna-bayangan);
+    margin-bottom: var(--spasi-xl);
+}
+
+.program-detail-content h3 {
+    color: var(--warna-primer);
+    margin-top: var(--spasi-md);
+    margin-bottom: var(--spasi-sm);
+    font-size: 1.6rem;
+}
+
+/* UBAH: Terapkan text-align: justify untuk paragraf di detail program */
+.program-detail-content p {
+    text-align: justify; /* PENAMBAHAN */
+    margin-bottom: var(--spasi-md); /* Menjaga jarak antar paragraf */
+}
+
+.program-detail-content ul {
+    list-style: disc;
+    padding-left: var(--spasi-md);
+    margin-bottom: var(--spasi-md);
+}
+
+.program-detail-content li {
+    margin-bottom: var(--spasi-sm);
+    text-align: justify; /* PENAMBAHAN: Rata kiri kanan untuk list item */
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Facilities Section */
+.facilities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spasi-md);
+}
+
+.facility {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--warna-bayangan);
+    background-color: white;
+}
+
+.facility img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+.facility:hover img {
+    transform: scale(1.1);
+}
+
+.facility h3 {
+    padding: 15px;
+    text-align: center;
+    background: white;
+    color: var(--warna-sekunder);
+    font-size: 1.3rem;
+}
+
+/* Contact Section */
+.contact-container {
+    display: flex;
+    gap: var(--spasi-xl);
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h3 {
+    margin-bottom: var(--spasi-md);
+    color: var(--warna-sekunder);
+}
+
+.contact-info p {
+    margin-bottom: var(--spasi-sm);
+    display: flex;
+    align-items: center;
+    text-align: left; /* Biarkan rata kiri untuk info kontak */
+}
+
+.contact-info i {
+    margin-right: var(--spasi-sm);
+    color: var(--warna-primer);
+}
+
+.social-media {
+    margin-top: var(--spasi-md);
+}
+
+.social-media a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.5rem;
+    color: var(--warna-sekunder);
+    transition: color 0.3s ease-in-out;
+}
+
+.social-media a:hover {
+    color: var(--warna-primer);
+}
+
+.contact-form {
+    flex: 1;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: var(--spasi-sm);
+    border: 1px solid var(--warna-abu-terang);
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* Screen reader only class for accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Footer */
+footer {
+    background-color: var(--warna-sekunder);
+    color: var(--warna-teks-terang);
+    text-align: center;
+    padding: var(--spasi-md) 0;
+    margin-top: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .school-profile {
+        padding: var(--spasi-md) 0;
+    }
+
+    .profile-content,
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .programs,
+    .facilities {
+        grid-template-columns: 1fr;
+    }
+
+    /* Header for mobile */
+    header {
+        height: auto;
+        padding-bottom: var(--spasi-md);
+    }
+
+    .header-top {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: var(--spasi-sm);
+        justify-content: center;
+        position: relative;
+    }
+
+    .logo-area {
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin-bottom: var(--spasi-sm);
+    }
+
+    .header-logo {
+        max-height: 70px;
+    }
+
+    .school-title {
+        text-align: center;
+        width: auto;
+    }
+
+    .school-title h1 {
+        font-size: 1.8rem;
+    }
+
+    .school-title .tagline {
+        font-size: 1rem;
+    }
+
+    /* Navigasi (Mobile) */
+    nav.main-nav {
+        margin-bottom: var(--spasi-lg);
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 90%;
+        background-color: var(--warna-latar-gelap-transparan-strong);
+        position: static;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        padding: 15px 0;
+        border-radius: 8px;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0;
+        text-align: center;
+        padding: var(--spasi-sm) 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hero content di mobile */
+    .hero-content {
+        padding: var(--spasi-sm);
+        margin-top: var(--spasi-md);
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: var(--spasi-sm) var(--spasi-md);
+        font-size: 0.9rem;
+    }
+
+    /* Responsive untuk sub-page header */
+    .subpage-header {
+        min-height: 200px;
+        padding: var(--spasi-md) 0;
+    }
+
+    .subpage-header .school-title h1 {
+        font-size: 2rem;
+    }
+
+    .subpage-header .school-title .tagline {
+        font-size: 1rem;
+    }
+
+    .program-detail-content {
+        padding: var(--spasi-md);
+    }
+
+    .program-detail-content h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .school-title h1 {
+        font-size: 1.5rem;
+    }
+
+    .school-title .tagline {
+        font-size: 0.9rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .logo-area {
+        left: var(--spasi-sm);
+    }
+
+    .subpage-header .school-title h1 {
+        font-size: 1.8rem;
+    }
+
+    .subpage-header .school-title .tagline {
+        font-size: 0.9rem;
+    }
+}
